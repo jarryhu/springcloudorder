@@ -1,23 +1,21 @@
 server:
-  port: 8762
+  port: 8888
 spring:
   application:
-    name: nativeconfigserver
+    name: configserver
   cloud:
+    bus:
+      trace:
+        enable: true
     config:
       server:
         git:
-          uri: https://github.com/jarryhu/springcloud-test.git
-          searchPaths: config
-          username: jarryhu
-          password: Jerryhu780910
-      label: master
+          uri: https://github.com/jarryhu/springcloudorder.git #git仓库地址
+          searchPaths: config #仓库路径
+          username: jarryhu #git仓库用户名
+          password: Jerryhu780910 #git仓库密码
+      label: master #仓库的分支
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          search-locations: classpath:/shared
