@@ -1,0 +1,7 @@
+# Project exclude paths
+/client/target/
+/configServer/target/
+/eruekaserver/target/
+/muenclient/target/
+/orderclient/target/
+/userclient/target/

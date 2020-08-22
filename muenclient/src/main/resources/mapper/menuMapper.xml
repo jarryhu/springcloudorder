@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hukun.repository.MenuRepository">
+    <resultMap id="menuMap" type="Menu">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="price" column="price"></result>
+        <result property="flavor" column="flavor"></result>
+        <association property="type" javaType="Type">
+            <id column="type_id" property="id"></id>
+            <result column="type_name" property="name" ></result>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="menuMap">
+        select t_menu.id,t_menu.name,t_menu.price,t_menu.flavor, t_type.id as type_id, t_type.name as type_name from t_menu  left join  t_type on t_menu.tid = t_type.id  limit #{param1},#{param2}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from t_menu
+    </select>
+
+    <select id="findById" parameterType="long" resultType="Menu">
+        select * from t_menu where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="Menu">
+        insert into t_menu(name,price,flavor) values(#{name},#{price},#{flavor})
+    </insert>
+
+    <update id="update" parameterType="Menu">
+        update t_menu set name = #{name},price = #{price},flavor = #{flavor} where id = #{id}
+    </update>
+
+
+    <delete id="deleteById" parameterType="long">
+        delete from t_menu where id = #{id}
+    </delete>
+</mapper> 
