@@ -1,9 +1,8 @@
 server:
-  port: 8040
+  port: 8020
 spring:
   application:
     name: menu
-
 eureka:
   client:
     service-url:

@@ -48,7 +48,7 @@
   } ],
   "pkColumn" : null,
   "otherColumn" : null,
-  "savePackageName" : "com.hukun.entity",
-  "savePath" : "./eruekaserver/src/main/java/com/hukun/entity",
-  "saveModelName" : "eruekaserver"
+  "savePackageName" : "com.hukun",
+  "savePath" : "./orderclient/src/main/java/com/hukun",
+  "saveModelName" : "orderclient"
 }

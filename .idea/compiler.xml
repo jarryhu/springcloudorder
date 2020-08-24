@@ -7,17 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="client" />
+        <module name="accountClient" />
         <module name="configServer" />
         <module name="eruekaserver" />
         <module name="userclient" />
         <module name="orderclient" />
-        <module name="client" />
         <module name="muenclient" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accountClient" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="configServer" options="-parameters" />
       <module name="eruekaserver" options="-parameters" />

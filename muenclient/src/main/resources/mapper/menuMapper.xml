@@ -21,8 +21,9 @@
         select count(id) from t_menu
     </select>
 
-    <select id="findById" parameterType="long" resultType="Menu">
-        select * from t_menu where id = #{id}
+    <select id="findById" parameterType="long" resultMap="menuMap">
+     select t_menu.id,t_menu.name,t_menu.price,t_menu.flavor, t_type.id as type_id, t_type.name
+     as type_name from t_menu  left join  t_type on t_menu.tid = t_type.id where t_menu.id = #{id}
     </select>
 
     <insert id="save" parameterType="Menu">

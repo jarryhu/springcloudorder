@@ -1,9 +1,9 @@
 package com.hukun.feign;
 
 import com.hukun.entity.Menu;
+import com.hukun.entity.Type;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +19,19 @@ public interface MenuFeign {
     @GetMapping("/menu/count")
     public int getCount();
 
-    @GetMapping("/menu/deleteById/{id}")
-    public int deleteById(@PathVariable("id") int id);
+
+    @GetMapping("/menu/findAllType")
+    public List<Type> findAllType();
+
+    @PostMapping("/menu/save")
+    public void save(@RequestBody Menu menu);
+
+    @GetMapping("/menu/findById/{id}")
+    public Menu findById(@PathVariable("id") long id);
+
+    @PutMapping("/menu/update")
+    public void update(@RequestBody Menu menu);
+
+    @DeleteMapping("/menu/deleteById/{id}")
+    public void deleteById(@PathVariable("id") long id);
 }

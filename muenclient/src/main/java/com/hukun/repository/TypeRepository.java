@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface TypeRepository {
-   public List<Type> findAll();
+   public List<Type> findAllType();
 }
